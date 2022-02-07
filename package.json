@@ -23,10 +23,10 @@
   },
   "homepage": "https://github.com/yoannisj/postcss-atwrap#readme",
   "dependencies": {
-    "postcss": "^7.0.17"
+    "postcss": "^8.0"
   },
   "devDependencies": {
-    "postcss-tape": "^5.0.0"
+    "postcss-tape": "^6.0.0"
   },
   "postcssConfig": {
     "plugin": "./index.js",
