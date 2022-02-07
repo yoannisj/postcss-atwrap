@@ -31,12 +31,19 @@ module.exports = postcss.plugin('atwrap', function atwrap(opts) {
     css.walkAtRules('at-end', function(endRule) {
 
       // find matching '@at-start' rule before current '@at-end' rule
-      const ruleName = endRule.params,
-        startRule = findStart(endRule, ruleName);
+      const ruleName = endRule.params.trim().split(/\s+/)[0];
+
+      // throw warning and interrupt if '@at-end' does not define rule name
+      if (!ruleName || ruleName.length == 0) {
+        endRule.warn(res, "Could not determine '@at-end' rule name.");
+        return;
+      }
+
+      const startRule = findStart(endRule, ruleName);
 
       // throw warning and interrupt if no '@at-start' rule was found
       if (startRule === undefined) {
-        endRule.warn(res, "Couldn't find '@at-start' rule matching '@at-end' rule.");
+        endRule.warn(res, "Could not find '@at-start' rule matching '@at-end' rule.");
         return;
       }
 
