@@ -2,7 +2,7 @@
   z-index: 1;
 }
 
-@at-start media print;
+@at-start media print and (min-width: 12cm);
 
 .foo {
  z-index: 3; 
@@ -12,4 +12,12 @@
   z-index:2;
 }
 
-@at-end media print;
+@at-end media;
+
+@at-start page;
+
+.container {
+  margin: 1cm;
+}
+
+@at-end page;
