@@ -1,6 +1,6 @@
 {
   "name": "postcss-atwrap",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Wraps rules between two '@at-start <name>;' and '@at-end <name>;' rules into a '@<name> {}' block.",
   "main": "index.js",
   "scripts": {
